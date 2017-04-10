@@ -1,0 +1,97 @@
+body {
+    background: #1d1d1d;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: perspective(600px);
+    transform-style: preserve-3d;
+}
+
+body * {
+    transform-style: preserve-3d;
+    outline: none;
+}
+
+#gui {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateZ(550px) scale(0.0833);
+    pointer-events: none;
+    overflow: hidden;
+    background: url(../img/vignette128.png) center center / 100% 100%;
+}
+
+#info {
+    background: #cddb7d;
+    font-size: 12px;
+    color: #555f20;
+    padding: 20px;
+    position: absolute;
+    width: 200px;
+    height: 230px;
+    text-align: justify;
+    top: calc(100% - 270px - 40px);
+    display: none;
+}
+
+#info p {
+    font-family: sans-serif;
+    font-weight: lighter;
+    line-height: 1.2;
+}
+
+#button_tray {
+    position: absolute;
+    width: 1200px;
+    height: 40px;
+    top: calc(100% - 40px);
+    transform-style: flat;
+    z-index: 9;
+    font-size: 0;
+    pointer-events: initial;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.button:hover {
+    background: #cddb7d;
+    color: #555f20;
+}
+
+.button.active {
+    background: #cddb7d;
+    color: #555f20;
+}
+
+#wrap {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateZ(600px);
+}
+
+#movement_wrap {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: transform 0.2s;
+}
+
+#plane {
+    width: 500px;
+    height: 500px;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
+    position: absolute;
+    border: 0px solid;
+    border-bottom-color: red;
+    border-left-color: blue;
+}
