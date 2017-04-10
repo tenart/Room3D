@@ -8,61 +8,60 @@
     backface-visibility: hidden;
     position: absolute;
     background: transparent center center / 100% 100% ;
-    image-rendering: pixelated;
     pointer-events: none;
 }
 
 #room_wrap .polygon {
-    filter: brightness(0.5) hue-rotate(-10deg);
+    filter: brightness(0.4) ;
 }
 
 #outside {
-    width: 500px;
+    width: 350px;
     height: 350px;
     background: linear-gradient(to top, #fff5dd , #ffffff);
-    transform: translateZ(-300px)
+    transform: translateZ(-260px) translateX(75px);
 }
 
 #ray_wrap {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(-2px) translateZ(-250px) translateY(75px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(-2px) translateZ(-250px) translateY(75px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #ray_wrap2 {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(-2px) translateZ(-250px) translateY(-20px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(-2px) translateZ(-250px) translateY(-20px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #ray_wrap3 {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(-2px) translateZ(-250px) translateY(-120px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(-2px) translateZ(-250px) translateY(-120px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #ray_wrap4 {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(152px) translateZ(-250px) translateY(75px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(152px) translateZ(-250px) translateY(75px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #ray_wrap5 {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(152px) translateZ(-250px) translateY(-20px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(152px) translateZ(-250px) translateY(-20px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #ray_wrap6 {
     height: 150px;
     width: 150px;
     border-radius: 1000px;
-    transform: translateX(152px) translateZ(-250px) translateY(-120px) rotateY(-10deg) rotateX(-30deg) scale3d(2,1,1);
+    transform: translateX(152px) translateZ(-250px) translateY(-120px) rotateY(-15deg) rotateX(-30deg) scale3d(2,1,1);
 }
 
 #rayH {
@@ -82,6 +81,156 @@
     transform: rotateY(270deg) rotateX(45deg) translateX(150px);
     backface-visibility: visible;
     opacity: 0.5;
+}
+
+#fan_wrap {
+    height: 50px;
+    width: 50px;
+    transform: rotateX(270deg) translateZ(-175px);
+}
+
+#fan_wrap .pole {
+    height: 50px;
+    width: 6px;
+    background-image: url(../img/fanPole.png);
+    backface-visibility: visible;
+}
+
+#pole1 {
+    transform: rotateX(90deg) rotateY(-45deg) translateY(25px);
+}
+
+#pole2 {
+    transform: rotateX(90deg) rotateY(45deg) translateY(25px);
+}
+
+#main_wrap {
+    height: 50px;
+    width: 50px;
+    transform: translateZ(47px);
+}
+
+#main_wrap .face {
+    height: 14px;
+    width: 20px;
+    background-image: url(../img/fanSide.png);
+}
+
+#m1 {
+    transform: rotateX(90deg) rotateY(22.5deg) translateZ(23px);
+}
+
+#m2 {
+    transform: rotateX(90deg) rotateY(67.5deg) translateZ(23px);
+}
+
+#m3 {
+    transform: rotateX(90deg) rotateY(112.5deg) translateZ(23px);
+}
+
+#m4 {
+    transform: rotateX(90deg) rotateY(157.5deg) translateZ(23px);
+}
+
+#m5 {
+    transform: rotateX(90deg) rotateY(202.5deg) translateZ(23px);
+}
+
+#m6 {
+    transform: rotateX(90deg) rotateY(247.5deg) translateZ(23px);
+}
+
+#m7 {
+    transform: rotateX(90deg) rotateY(292.5deg) translateZ(23px);
+}
+
+#m8 {
+    transform: rotateX(90deg) rotateY(337.5deg) translateZ(23px);
+}
+
+#m_cap {
+    background-image: url(../img/fanMainBotton.png);
+    width: 52px;
+    height: 52px;
+    transform: translateZ(7px);
+    border-radius: 999px;
+}
+
+#blade_wrap {
+    width: 50px;
+    height: 50px;
+    transform: translateZ(55px);
+    backface-visibility: visible;
+    animation: fan 4s infinite linear;
+}
+
+@keyframes fan {
+    from{
+        transform: translateZ(55px) rotateZ(0deg);
+    }
+    to {
+        transform: translateZ(55px) rotateZ(360deg);
+    }
+}
+
+#blade_wrap .blade {
+    height: 30px;
+    width: 120px;
+    background-image: url(../img/fanBlade.png);
+    backface-visibility: visible;
+}
+
+#b1 {
+    transform: rotateZ(270deg) rotateX(-15deg) translateX(70px);
+}
+
+#b2 {
+    transform: rotateZ(390deg) rotateX(-15deg) translateX(70px);
+}
+
+#b3 {
+    transform: rotateZ(510deg) rotateX(-15deg) translateX(70px);
+}
+
+#cap {
+    height: 40px;
+    width: 40px;
+    border-radius: 999px;
+    background-image: url(../img/fanCap.png);
+    transform: translateZ(60px);
+}
+
+#beam_wrap {
+    width: 500px;
+    height: 20px;
+    transform: translateY(-165px) translateZ(83px);
+}
+
+#beam_wrap2 {
+    width: 500px;
+    height: 20px;
+    transform: translateY(-165px) translateZ(-83px);
+}
+
+#bBottom {
+    width: 500px;
+    height: 20px;
+    transform: rotateX(270deg) translateZ(10px);
+    background-image: url(../img/beam.png);
+}
+
+#bForward {
+    width: 500px;
+    height: 20px;
+    transform: translateZ(10px);
+    background-image: url(../img/beam.png);
+}
+
+#bBack {
+    width: 500px;
+    height: 20px;
+    transform: rotateY(180deg) translateZ(10px);
+    background-image: url(../img/beam.png);
 }
 
 #floor {
@@ -158,37 +307,25 @@
 #shelf_wrap {
     height: 6px;
     width: 210px;
-    background: rgba(0, 0, 0, 0.15);
     transform: rotateY(45deg) translateZ(-247px) translateY(15px);
 }
 
 #shelf_wrap2 {
     height: 6px;
     width: 210px;
-    background: rgba(0, 0, 0, 0.15);
     transform: rotateY(45deg) translateZ(-247px) translateY(-21px) scale3d(1,1,0.3);
 }
 
 #shelf_wrap3 {
     height: 6px;
     width: 210px;
-    background: rgba(0, 0, 0, 0.15);
     transform: translateX(-2px) translateY(120px) translateZ(-250px) scale3d(0.65,1,0.3);
 }
 
 #shelf_wrap4 {
     height: 6px;
     width: 210px;
-    background: rgba(0, 0, 0, 0.15);
     transform: translateX(152px) translateY(120px) translateZ(-250px) scale3d(0.65,1,0.3);
-}
-
-#shelf_wrap3 * {
-    filter: brightness(0.3);
-}
-
-#shelf_wrap4 * {
-    filter: brightness(0.3);
 }
 
 #sTop {
@@ -224,4 +361,13 @@
     height: 6px;
     background-image: url(../img/shelfSide.png);
     transform: translateZ(30px);
+}
+
+#shelf_wrap3 * {
+    background-image: url(../img/beam.png);
+}
+
+#shelf_wrap4 * {
+    filter: brightness(0.3);
+    background-image: url(../img/beam.png);
 }

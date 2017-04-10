@@ -38,7 +38,8 @@ $(function() {
         vspeed: 0,
         sensitivity: 0.8,
         drag: 1,
-        zoom: 0.6
+        zoom: 0,
+        mode: "move",
     }
     
     var movement = {
@@ -94,17 +95,35 @@ $(function() {
     })
     
     $("#center").click(function() {
-        orbit.vdeg = -10;
-        orbit.hdeg = -20;
-        movement.z = -200;
-        movement.x = -200;
-        
+        if( orbit.mode == "move" ) {
+            orbit.vdeg = -10;
+            orbit.hdeg = -20;
+            movement.z = -200;
+            movement.x = -200;
+        } else {
+            orbit.vdeg = -10;
+            orbit.hdeg = -20;
+            movement.z = 0;
+            movement.x = 0;
+        }
+    })
+    
+    $("#mode").click(function() {
+        if( orbit.mode == "move" ) {
+            $(this).find("i").addClass("fa-arrows");
+            $(this).find("i").removeClass("fa-refresh");
+            orbit.mode = "orbit";
+        } else {
+            $(this).find("i").addClass("fa-refresh");
+            $(this).find("i").removeClass("fa-arrows");
+            orbit.mode = "move";
+        }
     })
     
     $(document).mousewheel(function(e) {
         e.preventDefault();
         console.log(e.deltaY);
-        var delta = (e.deltaY / 100);
+        var delta = (e.deltaY / 1);
         orbit.zoom += delta;
     })
     
@@ -227,11 +246,13 @@ $(function() {
             orbit.vdeg = -80;
         }
         
-        if( orbit.zoom > 4) {
-            orbit.zoom = 4;
-        } else if( orbit.zoom < 0.3 ) {
-            orbit.zoom = 0.3;
+        
+        if( orbit.zoom > 600) {
+            orbit.zoom = 600;
+        } else if( orbit.zoom < -600 ) {
+            orbit.zoom = -600;
         }
+        
         
         if( true ) {
             if( movement.z > 200) {
@@ -259,9 +280,16 @@ $(function() {
             
                 
         //$("#wrap").css("transform", "scale(" + orbit.zoom + ") translateZ(700px)");
-        
-        $("#wrap").css("transform", "translateZ(600px) rotateX(" + orbit.vdeg + "deg) rotateY(" + orbit.hdeg + "deg)");
-        $("#movement_wrap").css("transform", "translateZ(" + movement.z + "px) translateX(" + movement.x + "px)");
+        if( orbit.mode == "orbit" ) {
+            $("#plane").css("transform", "rotateX(" + orbit.vdeg + "deg) rotateY(" + orbit.hdeg + "deg)");
+            $("#wrap").css("transform", "translateZ(" + orbit.zoom + "px)");
+            $("#movement_wrap").css("transform", "");
+        } else {
+            $("#plane").css("transform", "");
+            $("#wrap").css("transform", "translateZ(600px) rotateX(" + orbit.vdeg + "deg) rotateY(" + orbit.hdeg + "deg)");
+            $("#movement_wrap").css("transform", "translateZ(" + movement.z + "px) translateX(" + movement.x + "px)");
+        }
+            
     }
     
 })

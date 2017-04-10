@@ -43,7 +43,6 @@ body * {
 
 #button_tray {
     position: absolute;
-    width: 1200px;
     height: 40px;
     top: calc(100% - 40px);
     transform-style: flat;
